@@ -1,0 +1,29 @@
+# FETCH
+This implementation of fetch made use of babel polyfill's methods filter, map, forEach, async, await. 
+
+In addition to retrieve, 4 helper functions were created.
+
+* isPrimary: takes a string input of a color, and returns true if the color is red, blue, or yellow (primary colors as specified by README)
+
+* isOpen: takes a disposition for a record, and returns true if the disposition is 'open'
+
+* getRecordCountInNextPage: inputs a url that represents the url for the next page of output, and calculates the number of records in the page. This is used to determine we should make the 'nextPage' field in retrieve return object null
+
+* makeUrl: this function constructs the url query for the api call
+
+#SCLCSP
+## Assumptions
+
+Since the instructions state that Zip codes that have more than one rate area have ambiguous slcsp, I assumed that Zip codes that are shared by multiple states produce ambiguous slcsps as well. This assumption was made since the slcsp.csv file does not have a 'state' or 'county' column. Additionally, ambiguous slcsps(blanks) were added to the output file for Rate areas that were not included in the 'plans.csv' file.
+
+## Running this program
+
+The solution for this program uses Java 8. Please follow the the steps below to run this program.
+
+* Download Java 8
+* In the command line, run javac AddColumnToCsv.java
+* Then run java AddColumnToCsv
+
+## Output
+
+The output for the slcsp.csv file may be found on the slcspByZip.csv file.
