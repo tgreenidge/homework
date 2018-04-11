@@ -1,3 +1,8 @@
+# hhbuidler
+For this implementation of hhbuidler,
+    * Members are added to the household by clicking the 'add' button only
+    * Existing members in the household are added to the "debug" element by clicking the 'submit' button only
+
 # FETCH
 This implementation of fetch made use of babel polyfill's methods filter, map, forEach, async, await. 
 
