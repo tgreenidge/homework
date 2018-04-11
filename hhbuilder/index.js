@@ -84,6 +84,17 @@ function printErrorMessage(message) {
   }
 }
 
+//removes error message from dom
+function removeErrorMessage() {
+  if (document.getElementsByClassName('message').length > 0) {
+    var message = document.getElementsByClassName('message')[0];
+
+    while (message.firstChild) {
+      message.removeChild(message.firstChild);
+    }
+  }
+}
+
 // adds an event listener to a remove button and removes the list element for the button, and respective
 // member from householdMembers array
 function addEventListenerToRemoveButton(button) {
@@ -113,6 +124,7 @@ addButton.addEventListener('click', function(e) {
   var smoker = document.getElementsByName('smoker')[0].checked;
 
   if (isAgeValid(age) && isRelationshipPresent(relationship)) {
+    removeErrorMessage();
     addToHousehold(parseInt(age), relationship, smoker);
   } else if (!isAgeValid(age) && !isRelationshipPresent(relationship)) {
     printErrorMessage(
