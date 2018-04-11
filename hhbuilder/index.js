@@ -1,10 +1,3 @@
-// add person
-// if person already in list, do not add
-// only sunbit if form is valid
-
-// add button adds to the list
-// submit button adds household list to debug
-
 // stores all the members of the household
 var householdMembers = [];
 
@@ -59,6 +52,8 @@ function printNewMember(member) {
   var text = document.createTextNode(memberInfo);
   li.appendChild(text);
   li.appendChild(removeButton);
+
+  // append list element on DOM
   householdList.appendChild(li);
 }
 
@@ -89,6 +84,8 @@ function printErrorMessage(message) {
   }
 }
 
+// adds an event listener to a remove button and removes the list element for the button, and respective
+// member from householdMembers array
 function addEventListenerToRemoveButton(button) {
   button.addEventListener('click', function(e) {
     e.preventDefault();
@@ -99,7 +96,10 @@ function addEventListenerToRemoveButton(button) {
       this.parentNode
     );
 
+    //remove list element from DOM
     householdList.removeChild(householdList.childNodes[indexOfMember]);
+
+    // remove corresponding element from householdMembers array
     removeMember(indexOfMember);
   });
 }
